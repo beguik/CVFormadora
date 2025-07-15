@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('line1')) {
     const lines = [
       "¡Hola!",
-      "Soy Belén, Docente en Competencias Digitales.",
-      "Entra en las aulas y conoce mi trabajo y mis proyectos.",
+      "Soy Belén, docente en Competencias Digitales y Desarrollo Web.",
+      "Haz click en los post-it y descubre que puedo aportarte.",
       "¡Gracias por tu visita!, Si estas interesado, no dudes en contactarme."
     ];
     const ids = ['line1', 'line2', 'line3', 'line4'];
@@ -54,9 +54,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     li.addEventListener('mouseleave', () => {
       const panel = document.getElementById(li.dataset.panel);
-    if (panel) panel.classList.remove('active');
+      if (panel) panel.classList.remove('active');
     });
   });
+
+
+
+
+
+
+
+
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescription = document.getElementById('modal-description');
+  const closeBtn = document.querySelector('.close');
+
+  const posts = document.querySelectorAll('.post');
+  posts.forEach(post => {
+
+    post.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const title = post.getAttribute('data-title');
+      const description = post.getAttribute('data-description');
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modal.style.display = 'block';
+    });
+  });
+
+  // Cerrar modal al hacer clic en la X
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Cerrar modal al hacer clic fuera
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
