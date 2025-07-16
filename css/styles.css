@@ -218,7 +218,6 @@ body {
 /*----Modal--*/
 .modal {
   display: none;
-  /* Oculto por defecto */
   position: fixed;
   z-index: 999;
   left: 0;
@@ -437,7 +436,7 @@ body {
   }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 500px) {
 
   html {
     font-size: 14px;
@@ -457,11 +456,11 @@ body {
   }
 
   #pizarra h2 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   #pizarra p {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   .titulo-lateral {
@@ -481,5 +480,15 @@ body {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
+  }
+
+  .texto {
+    font-size: 0.5rem;
+
+  }
+
+  #pizarra {
+    top: 5%;
+    font-size: 0.85rem;
   }
 }
