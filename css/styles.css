@@ -542,23 +542,21 @@ main h2.instruccion-trabajos {
     top: 5%;
     font-size: 0.85rem;
   }
-   .info-panel {
-    position: fixed;    
-    top: 10%;
-    left: 50%; 
-    right: auto;          
-    transform: translateX(-50%);
-    width: 50%;         
-    max-height: 80%;     
-    overflow-y: auto;     
-    z-index: 1000;
-  }
-
+  .info-panel,
+  .info-panel.active,
   .info-panel:nth-of-type(odd),
-  .info-panel:nth-of-type(even) {
-    right: auto;
+  .info-panel:nth-of-type(odd).active,
+  .info-panel:nth-of-type(even),
+  .info-panel:nth-of-type(even).active {
+    position: fixed;
+    top: 10%;
     left: 50%;
+    right: auto;
     transform: translateX(-50%);
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 1000;
   }
 
   .info-panel.active {
