@@ -314,13 +314,15 @@ body {
   font-size: 1rem;
   line-height: 1.4;
 }
+
 /*----boton para cursos y modal -----*/
 .boton-cursos-container {
   text-align: center;
   margin-top: 1.5rem;
 }
+
 .boton-cursos {
-  background-color: #008e34; 
+  background-color: #008e34;
   color: #fff;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -328,7 +330,7 @@ body {
   font-family: 'Chalky', sans-serif;
   border-radius: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.2s ease;
 }
 
@@ -489,7 +491,7 @@ body {
   }
 
   #pizarra h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   #pizarra p {
@@ -519,9 +521,11 @@ body {
     font-size: 0.5rem;
 
   }
-#listaTrabajos {
-  font-size: 1rem; 
-}
+
+  #listaTrabajos {
+    font-size: 0.9rem;
+  }
+
   #pizarra {
     top: 5%;
     font-size: 0.85rem;
