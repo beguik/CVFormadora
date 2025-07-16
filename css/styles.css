@@ -235,7 +235,7 @@ body {
   border: 4px solid #e67e22;
   border-radius: 10px;
   width: 80%;
-  max-width: 500px;
+  max-width: 1000px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
@@ -314,6 +314,38 @@ body {
   font-size: 1rem;
   line-height: 1.4;
 }
+/*----boton para cursos y modal -----*/
+.boton-cursos-container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.boton-cursos {
+  background-color: #008e34; 
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Chalky', sans-serif;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+
+.boton-cursos:hover {
+  background-color: #C49E6C;
+}
+
+.lista-cursos {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.lista-cursos li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
 
 
 /*--Página Trabajo--*/
@@ -358,6 +390,7 @@ body {
   display: block;
   left: 10px;
 }
+
 
 
 

@@ -58,13 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-
-
-
-
-
-
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modal-title');
   const modalDescription = document.getElementById('modal-description');
@@ -95,7 +88,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const botonCursos = document.getElementById('botonCursos');
+  const modalCursos = document.getElementById('modalCursos');
+  const closeCursos = modalCursos.querySelector('.close');
 
+  botonCursos.addEventListener('click', () => {
+    modalCursos.style.display = 'block';
+  });
+
+  closeCursos.addEventListener('click', () => {
+    modalCursos.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modalCursos) {
+      modalCursos.style.display = 'none';
+    }
+  });
 
 
 
