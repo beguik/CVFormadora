@@ -37,26 +37,41 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
   }
-  const items = document.querySelectorAll('#listaTrabajos li');
-  const container = document.querySelector('.info-panels');
+ const items = document.querySelectorAll('#listaTrabajos li');
+const container = document.querySelector('.info-panels');
 
-  items.forEach(li => {
-    li.addEventListener('mouseenter', () => {
-      const targetId = li.getAttribute('data-panel');
-      container.querySelectorAll('.info-panel')
-        .forEach(p => p.classList.remove('active'));
-      // mostramos el seleccionado
-      const panel = document.getElementById(targetId);
-      panel && panel.classList.add('active');
+// Guardamos el panel activo
+let activePanel = null;
 
+items.forEach(li => {
+  li.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita que el click llegue al window y lo cierre
+
+    const targetId = li.getAttribute('data-panel');
+
+    // Ocultar cualquier panel activo
+    if (activePanel) {
+      activePanel.classList.remove('active');
+      activePanel = null;
+    }
+
+    // Mostrar el panel correspondiente
+    const panel = document.getElementById(targetId);
+    if (panel) {
+      panel.classList.add('active');
+      activePanel = panel;
       container.classList.add('visible');
-    });
-
-    li.addEventListener('mouseleave', () => {
-      const panel = document.getElementById(li.dataset.panel);
-      if (panel) panel.classList.remove('active');
-    });
+    }
   });
+});
+
+// Al hacer clic fuera, cerramos el panel
+window.addEventListener('click', () => {
+  if (activePanel) {
+    activePanel.classList.remove('active');
+    activePanel = null;
+  }
+});
 
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modal-title');
