@@ -542,8 +542,25 @@ main h2.instruccion-trabajos {
     top: 5%;
     font-size: 0.85rem;
   }
-  .info-panel {
-  width: 200px;
+   .info-panel {
+    position: fixed;    
+    top: 10%;
+    left: 50%;           
+    transform: translateX(-50%);
+    width: 90%;         
+    max-height: 80%;     
+    overflow-y: auto;     
+    z-index: 1000;
+  }
 
+  .info-panel:nth-of-type(odd),
+  .info-panel:nth-of-type(even) {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .info-panel.active {
+    display: block;
   }
 }
