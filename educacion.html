@@ -3,27 +3,22 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Formación – Belén Guijarro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belén Guijarro Cubero CV</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <header class="main-header">
-    <div class="avatar-container">
-      <a href="index.html"><img src="img/logo.png" alt="Logo Belén"></a>
-    </div>
-    <h1 class="header-title">Mi formación</h1>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="educacion.html" aria-label="Formación"> <i class="bi bi-mortarboard-fill"></i></a></li>
-        <li><a href="trabajo.html" aria-label="Experiencia"><i class="bi bi-briefcase-fill"></i></a></li>
-        <li><a href="doc/CVBelenGuijarroCubero.pdf" target="_blank" aria-label="Descargar CV"><i
-              class="bi bi-person-lines-fill"></i></a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header"></div>
+  <script>
+    fetch("plantillas/header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+  </script>
 
   <main>
     <div id="layout">
@@ -56,7 +51,8 @@
           <li><strong>Ciberseguridad</strong> – Ciberseguridad - Análisis Forense Informatico (2ª Edicion)(Formación
             permanente del profesorado) – 60 h (2025) </li>
           <li><strong>Desarrollo Web</strong> – JAVA - IFCD033PO (Formalba) – 60 h (2021) </li>
-          <li><strong>Desarrollo web</strong> – Programación de Páginas Web JavaScript y PHP - IFCT091PO (Formalba) – 65 h
+          <li><strong>Desarrollo web</strong> – Programación de Páginas Web JavaScript y PHP - IFCT091PO (Formalba) – 65
+            h
             (2020) </li>
           <li><strong>Desarrollo Web</strong> – Business Intelligence - ADGG102PO (Formalba) – 30 h (2019) </li>
           <li><strong>Marketing Digital</strong> – Cómo crear una campaña de publicidad online (Mainfor) – 10 h (2018)
@@ -79,36 +75,16 @@
 
   </main>
 
-  <footer class="pie-pagina">
-    <div class="pie-contenido">
-      <div class="contacto">
-        <a href="mailto:belenguijarrocubero@gmail.com">
-          <i class="bi bi-envelope-fill"></i>
-          belenguijarrocubero@gmail.com
-        </a>
-        <a href="tel:+34687770954">
-          <i class="bi bi-telephone-fill"></i>
-          +34 687 77 09 54
-        </a>
-        <a href="https://www.linkedin.com/in/beguik" target="_blank">
-          <i class="bi bi-linkedin"></i>
-          LinkedIn
-        </a>
-        <a href="https://github.com/beguik" target="_blank">
-          <i class="bi bi-github"></i>
-          GitHub
-        </a>
-      </div>
-    </div>
-    <div class="pie-copy">
-      &copy; <span id="anio"></span> Belén Guijarro Cubero
-    </div>
-  </footer>
-
+  <div id="footer"></div>
+    <script>
+        fetch("plantillas/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+                document.getElementById("anio").textContent = new Date().getFullYear();
+            });
+    </script>
   <script src="./miScript.js"></script>
-  <script>
-    document.getElementById('anio').textContent = new Date().getFullYear();
-  </script>
 </body>
 
 </html>
