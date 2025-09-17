@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belén Guijarro Cubero CV</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/stylessblog.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <script>
+        fetch("plantillas/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+    </script>
+
+
+    <main>
+        <h1 style="text-align: center;font-family: 'Chalky', sans-serif;">Blog</h1>
+
+        <div class="accordion main-header">
+            <div class="accordion-item">
+                <div class="accordion-title" onclick="toggleAccordion(this)">
+                    <h2>Tecnología, personas y desigualdad: lo que nos cuentan los datos</h2>
+                </div>
+                <div class="accordion-content open">
+                    <p>
+                        Cada vez hacemos más cosas desde una pantalla: pedir cita médica, hacer gestiones con el banco,
+                        buscar trabajo, estudiar, comprar, hablar con la administración… Todo esto requiere algo más que
+                        tener conexión a internet, necesitamos saber usar bien la tecnología.
+                    </p>
+
+                    <p>
+                        La Unión Europea es muy consciente de ello, y por eso se ha propuesto que, para el año 2030, al
+                        menos el
+                        <strong>80 % de la población cuente con competencias digitales básicas</strong>. Para
+                        conseguirlo, está destinando
+                        miles de millones de euros a programas de formación, ayudas, mejora de la conectividad y acceso
+                        a dispositivos.
+                        Uno de los pilares de este esfuerzo es el plan
+                        <a href="https://next-generation-eu.europa.eu/index_en" target="_blank"
+                            rel="noopener noreferrer">NextGenerationEU</a>,
+                        que financia cursos, materiales y recursos digitales en toda España y otros países de la Unión.
+                    </p>
+
+                    <p>
+                        Pero, ¿cómo va España en todo esto? ¿Estamos avanzando al ritmo que deberíamos? ¿Quiénes se
+                        están quedando fuera del mundo digital?
+                        Y lo más importante: ¿cómo afecta todo esto a nuestra vida diaria, al trabajo, a la educación o
+                        a las oportunidades que tenemos?
+                    </p>
+
+                    <p>
+                        Con datos del <strong>INE</strong>, <strong>Eurostat</strong> y la <strong>Comisión
+                            Europea</strong>, vamos a echar un vistazo a la situación
+                        actual de las competencias digitales en nuestro país y a descubrir por qué este tema no va solo
+                        de tecnología,
+                        sino también de <strong>igualdad, oportunidades</strong> y <strong>calidad de vida</strong>.
+                    </p>
+
+                    <p>El objetivo es que todo el mundo tenga las mismas oportunidades para aprender y adaptarse al
+                        mundo digital, sin importar la edad, el lugar donde viva o su situación económica. Por eso,
+                        también se está trabajando para que todos los hogares tengan acceso a Internet y dispositivos
+                        tecnológicos, algo que sigue siendo un reto en algunas zonas.</p>
+
+
+                    <h3>¿Cómo se sitúa España frente al resto de Europa?</h3>
+
+                    <p>
+                        Según los últimos datos de la Comisión Europea y Eurostat, en 2023 el <strong>66,2 %</strong> de
+                        la población española entre 16 y 74 años
+                        tenía competencias digitales básicas o superiores. Este dato está por encima de la media de la
+                        Unión Europea, que se sitúa en el <strong>55,6 %</strong>.
+                    </p>
+
+                    <p>
+                        Aunque vamos en buena dirección, todavía estamos lejos del objetivo marcado para 2030, que es
+                        que al menos el <strong>80 %</strong> de la población europea
+                        tenga un nivel mínimo de competencias digitales. Esto muestra que, si bien España está por
+                        encima del promedio, aún queda trabajo por hacer.
+                    </p>
+                    <div style="display: flex; justify-content: center;">
+                        <canvas id="graficoEspanaUE" style="max-height: 200px;max-width:400px "></canvas>
+                    </div>
+                    <script>
+                        const ctxEspUE = document.getElementById('graficoEspanaUE').getContext('2d');
+                        new Chart(ctxEspUE, {
+                            type: 'bar',
+                            data: {
+                                labels: ['España', 'Media UE', 'Objetivo 2030'],
+                                datasets: [{
+                                    label: '% con competencias digitales básicas o superiores',
+                                    data: [66.2, 55.6, 80],
+                                    backgroundColor: ['#3e95cd', '#8e5ea2', '#ffa600']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        title: {
+                                            display: true,
+                                            text: '% de población'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                    <h3>¿Cómo influyen la edad y el género en las competencias digitales?</h3>
+
+                    <p>
+                        Aunque actualmente no contamos con datos desglosados por edad y género específicos de España, sí
+                        podemos analizar la situación a nivel europeo gracias a los últimos datos publicados por
+                        <strong>Eurostat</strong>.
+                    </p>
+
+                    <p>
+                        Según estas cifras, el nivel de competencias digitales básicas o superiores varía
+                        considerablemente según el grupo de edad, y también existen diferencias entre hombres y mujeres.
+                        Los más jóvenes, tanto hombres como mujeres, muestran un alto nivel de competencias. Sin
+                        embargo, a medida que aumenta la edad, los porcentajes disminuyen, especialmente en el caso de
+                        las mujeres mayores de 55 años.
+                    </p>
+
+                    <p>
+                        Estos datos reflejan una brecha digital generacional y de género que debe tenerse en cuenta a la
+                        hora de diseñar políticas públicas de formación digital, especialmente si se quiere garantizar
+                        una digitalización inclusiva para todos.
+                    </p>
+
+                    <div style="display: flex; justify-content: center;">
+                        <canvas id="graficoDigitalEdadSexoUE" style="max-height: 300px;max-width:400px "></canvas>
+                    </div>
+
+
+                    <script>
+                        const ctxEdadSexoUE = document.getElementById('graficoDigitalEdadSexoUE').getContext('2d');
+
+                        const gruposEdad = ['16–24', '25–34', '35–44', '45–54', '55–64', '65–74'];
+
+                        const datosHombres = [84, 79, 73, 65, 53, 34];
+                        const datosMujeres = [85, 77, 71, 61, 47, 28];
+
+                        new Chart(ctxEdadSexoUE, {
+                            type: 'line',
+                            data: {
+                                labels: gruposEdad,
+                                datasets: [
+                                    {
+                                        label: 'Hombres',
+                                        data: datosHombres,
+                                        borderColor: '#3e95cd',
+                                        backgroundColor: '#3e95cd33',
+                                        tension: 0.3,
+                                        fill: false
+                                    },
+                                    {
+                                        label: 'Mujeres',
+                                        data: datosMujeres,
+                                        borderColor: '#f26b8a',
+                                        backgroundColor: '#f26b8a33',
+                                        tension: 0.3,
+                                        fill: false
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        position: 'top'
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        title: {
+                                            display: true,
+                                            text: '% de población con competencias digitales'
+                                        }
+                                    },
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Grupo de edad'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                    <h3>¿Influye el lugar donde vivimos en el acceso a la tecnología?</h3>
+
+                    <p>
+                        A la hora de hablar de brecha digital, no podemos olvidarnos del entorno en el que vivimos. No
+                        es lo mismo residir en una gran ciudad que en un pequeño pueblo, y eso también se nota en el
+                        acceso a dispositivos tecnológicos.
+                    </p>
+
+                    <p>
+                        Según los últimos datos del <strong>Instituto Nacional de Estadística (INE, 2024)</strong>, los
+                        hogares que viven en municipios más pequeños —especialmente en zonas rurales— tienen menos
+                        acceso a ordenadores que aquellos que viven en ciudades más grandes.
+                    </p>
+
+                    <p>
+                        Aunque las diferencias no son extremas, sí muestran una tendencia clara: <strong>cuanto más
+                            pequeño es el municipio, menor es el porcentaje de hogares con ordenador</strong>. Esta
+                        brecha territorial puede tener un impacto importante en las oportunidades de formación, empleo o
+                        acceso a servicios digitales, especialmente en los entornos rurales.
+                    </p>
+
+                    <div style="display: flex; justify-content: center;">
+                        <canvas id="graficoMunicipios" style="max-height: 300px;max-width:900px "></canvas>
+                    </div>
+
+
+                    <script>
+                        const ctxMunicipios = document.getElementById('graficoMunicipios').getContext('2d');
+
+                        const municipios = [
+                            "Más de 100.000 hab. y capitales",
+                            "De 50.000 a 100.000 hab.",
+                            "De 20.000 a 50.000 hab.",
+                            "De 10.000 a 20.000 hab.",
+                            "Menos de 10.000 hab."
+                        ];
+
+                        const porcentajeAcceso = [77.9, 75.7, 72.5, 70.6, 66.5];
+
+                        new Chart(ctxMunicipios, {
+                            type: 'bar',
+                            data: {
+                                labels: municipios,
+                                datasets: [{
+                                    label: '% de hogares con ordenador',
+                                    data: porcentajeAcceso,
+                                    backgroundColor: '#3cba9f'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: { display: false },
+                                    tooltip: { mode: 'index', intersect: false }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        title: {
+                                            display: true,
+                                            text: '% de hogares'
+                                        }
+                                    },
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Tamaño del municipio'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                    <h3>¿Quiénes están más conectados cada día?</h3>
+
+                    <p>
+                        Usar Internet todos los días se ha vuelto algo tan normal como tomar un café por la mañana. Lo
+                        usamos para todo:
+                        trabajar, estudiar, comunicarnos o simplemente estar al día. Pero ¿pasa lo mismo en todas las
+                        partes de España?
+                    </p>
+
+                    <p>
+                        Aunque casi todo el mundo tiene acceso a Internet, no todas las comunidades autónomas lo usan
+                        con la misma
+                        frecuencia. Gracias a los datos del <strong>Instituto Nacional de Estadística (INE,
+                            2024)</strong>, podemos ver
+                        cómo varía el uso diario de Internet según el lugar en el que vivimos.
+                    </p>
+
+                    <p>
+                        El siguiente gráfico nos muestra, de forma clara, qué comunidades están más conectadas en su día
+                        a día y en cuáles
+                        el uso de Internet todavía no es tan intenso. Esta información es muy útil para entender dónde
+                        pueden hacer falta
+                        más recursos, formación o mejoras en la conectividad.
+                    </p>
+
+                    <p>
+                        Además, si lo comparamos con el gráfico anterior —el que muestra el acceso a ordenadores según
+                        el tamaño del municipio—,
+                        vemos que existe una <strong>relación directa entre densidad de población y uso intensivo de
+                            Internet</strong>:
+                        las comunidades donde hay grandes núcleos urbanos suelen tener también un mayor nivel de
+                        conexión diaria. Esto
+                        vuelve a poner sobre la mesa la <strong>brecha territorial</strong>, que afecta especialmente a
+                        zonas rurales o con menor densidad de población.
+                    </p>
+
+                    <div style="display: flex; justify-content: center;">
+                        <canvas id="graficoUsoIntensivo" style="max-height: 500px; max-width: 800px;"></canvas>
+                    </div>
+                    <script>
+                        const ctxUsoIntensivo = document.getElementById('graficoUsoIntensivo').getContext('2d');
+
+                        new Chart(ctxUsoIntensivo, {
+                            type: 'bar',
+                            data: {
+                                labels: [
+                                    'Asturias', 'Galicia', 'Extremadura', 'Castilla y León', 'Cantabria',
+                                    'País Vasco', 'Murcia', 'Andalucía', 'Castilla-La Mancha',
+                                    'Comunidad Valenciana', 'Navarra', 'Canarias',
+                                    'Aragón', 'Cataluña', 'Illes Balears', 'Madrid'
+                                ],
+                                datasets: [{
+                                    label: '% de personas que usan Internet varias veces al día (INE, 2024)',
+                                    data: [
+                                        78.8, 79.3, 79.5, 80.6, 81.2,
+                                        82.1, 82.2, 82.4, 82.6,
+                                        84.6, 85.6, 85.9,
+                                        86.2, 86.8, 90.2, 91.3
+                                    ],
+                                    backgroundColor: '#3cba9f'
+                                }]
+                            },
+                            options: {
+                                indexAxis: 'y',
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        title: {
+                                            display: true,
+                                            text: '% de uso intensivo de Internet'
+                                        }
+                                    }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+
+                    <h3>Conclusiones: más que tecnología, hablamos de personas</h3>
+
+                    <p>
+                        A lo largo del artículo hemos ido viendo cómo la digitalización no avanza igual para todos. Los
+                        datos y gráficos lo muestran de forma clara: todavía hay <strong>brechas digitales
+                            importantes</strong> que afectan sobre todo a las personas mayores de 40 años y a quienes
+                        viven en municipios más pequeños o zonas rurales.
+                    </p>
+
+                    <p>
+                        Esta brecha no es solo tecnológica. Limita las oportunidades para formarse, encontrar trabajo,
+                        acceder a servicios o simplemente participar plenamente en una sociedad cada vez más digital. Y
+                        eso tiene un impacto directo en la <strong>calidad de vida</strong>.
+                    </p>
+
+                    <p>
+                        Por eso, si de verdad queremos una transformación digital justa e inclusiva, es fundamental
+                        <strong>reforzar la formación digital en estos colectivos</strong>, mejorar la conectividad en
+                        las zonas rurales y adaptar las tecnologías a las personas, y no al revés.
+                    </p>
+
+                    <p>
+                        Al final, <strong>la digitalización no va solo de cables y pantallas</strong>, va de hacer que
+                        nadie se quede atrás. Porque al final, <strong>la tecnología solo tiene sentido si mejora la
+                            vida de las
+                            personas</strong>.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script>
+        fetch("plantillas/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+                document.getElementById("anio").textContent = new Date().getFullYear();
+            });
+    </script>
+    <script>
+        let graficoTarta = null;
+
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const isOpen = content.classList.toggle('open');
+            if (isOpen && graficoTarta) {
+                setTimeout(() => {
+                    graficoTarta.resize();
+                }, 300);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

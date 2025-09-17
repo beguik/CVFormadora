@@ -1,0 +1,44 @@
+ .accordion {
+     margin: auto;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     overflow: hidden;
+ }
+
+ .accordion-title {
+     cursor: pointer;
+     padding: 0.5rem;
+     font-weight: bold;
+     font-family: 'Chalky', sans-serif;
+     border-radius: 8px;
+     transition: background-color 0.3s ease;
+ }
+
+ .accordion-title:hover {
+     background-color: #E6DCCF;
+ }
+
+ .accordion-content {
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.4s ease;
+     padding: 0 1rem;
+ }
+
+ .accordion-content.open {
+     max-height: none;
+     /* ajustable */
+     padding: 1rem;
+ }
+
+ canvas {
+     max-width: 100%;
+     height: auto;
+ }
+
+ #mapa {
+     height: 600px;
+     border-radius: 12px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     margin-top: 2rem;
+ }

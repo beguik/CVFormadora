@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa uso diario</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #mapa {
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="mapa"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-choropleth"></script>
+<script>
+  const usoDiario = {
+    "Andalucía": 91.6,
+    "Aragón": 92.6,
+    "Asturias": 86.9,
+    "Illes Balears": 93.3,
+    "Canarias": 92.5,
+    "Cantabria": 89.9,
+    "Castilla y León": 88.7,
+    "Castilla-La Mancha": 90.9,
+    "Cataluña": 92.7,
+    "Comunidad Valenciana": 92.5,
+    "Extremadura": 88.3,
+    "Galicia": 86.9,
+    "Comunidad de Madrid": 93.5,
+    "Región de Murcia": 90.1,
+    "Navarra": 92.2,
+    "País Vasco": 89.5,
+    "La Rioja": 88.8
+  };
+
+  const mapa = L.map('mapa').setView([40.3, -3.7], 6);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(mapa);
+
+  fetch('https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/spain-autonomous-communities.geojson')
+    .then(res => res.json())
+    .then(geojson => {
+      L.choropleth(geojson, {
+        valueProperty: feature => usoDiario[feature.properties.name] || 0,
+        scale: ['#e0ecf4', '#08306b'],
+        steps: 6,
+        mode: 'q',
+        style: {
+          color: '#fff',
+          weight: 1,
+          fillOpacity: 0.8
+        },
+        onEachFeature: function (feature, layer) {
+          const comunidad = feature.properties.name;
+          const valor = usoDiario[comunidad];
+          if (valor) {
+            layer.bindPopup(`<strong>${comunidad}</strong><br>Uso diario: ${valor.toFixed(1)}%`);
+          } else {
+            layer.bindPopup(`<strong>${comunidad}</strong><br>Sin datos disponibles`);
+          }
+        }
+      }).addTo(mapa);
+    });
+</script>
+</body>
+</html>
